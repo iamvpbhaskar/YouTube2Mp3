@@ -31,7 +31,14 @@ app.post("/convert-mp3", async (req, res) => {
     ){
         return res.render("index", {success : false, message : "Please Enter a Valid Video URL"});
     }else{
-        
+        const fetchAPI = await fetch(`https://youtube-mp36.p.rapidapi.com/dl?id=${videoID}`,
+        {
+            "method" : "GET",
+            "headers": {
+                "x-rapidapi-key": process.env.API_KEY,
+                "x-rapidapi-host": process.env.API_HOST
+            }
+        });
     }
 })
 

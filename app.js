@@ -2,12 +2,13 @@
 const express = require("express");
 const fetch = require("node-fetch");
 require("dotenv").config();
+const localhost = "127.0.0.1"
 
 //create the express server
 const app = express();
 
 //server PORT number
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 //set templpate engine
 app.set("view engine", "ejs");
@@ -52,6 +53,6 @@ app.post("/convert-mp3", async (req, res) => {
 
 //start the server
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+    console.log(`Server started on port:http://${localhost}:${PORT}`);
 }
 )
